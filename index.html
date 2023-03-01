@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+</head>
+<body>
+  <div class="content">
+    <h2 class="heading">Fetured Items</h2>
+    <p class="text">Shop for items based on what we featured in this week</p>
+    <div class="product-list"> 
+      <div class="product"> </div>
+
+      <div class="product"> </div>
+
+      <div class="product"> </div>
+
+      <div class="product"> </div>
+
+      <div class="product"> </div>
+
+      <div class="product"> </div> 
+    </div>
+   
+  </div>
+</body>
+
+<script src="data.js"></script>
+<script>
+  const dataProducts = JSON.parse(dataInfo);
+  const products = document.querySelectorAll(".product"); 
+
+
+
+  products.forEach(product => {
+  for (const i in dataProducts) {
+    product.innerHTML = "<img class='image-product'src='' alt=''>" +
+      "<h3 class='name'>" + dataProducts[i].Title+ "</h3>" +
+      "<p class='description'> "+ dataProducts[i].description+"</p>" +
+      "<p class='price'>"+ dataProducts[i].price+"</p> "
+  }
+  })
+    products[0].firstChild.src = "./img/img1.jpg" 
+    products[1].firstChild.src = "./img/img2.png"
+    products[2].firstChild.src = "./img/img3.png"
+    products[3].firstChild.src = "./img/img4.png" 
+    products[4].firstChild.src = "./img/img5.png"
+    products[5].firstChild.src = "./img/img6.png"
+   
+</script>
+
+<style>
+  .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3,360px);
+  gap: 30px;
+}
+.product {
+  background: #F8F8F8;
+  padding-bottom: 20px;
+}
+</style>
+
+
+
+</html>
+
